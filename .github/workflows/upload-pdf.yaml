@@ -1,0 +1,48 @@
+name: Create PDF
+
+on: push
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: create file list
+        id: files_list
+        run: |
+          echo "::set-output name=files::$(printf '"%s" ' sections/*.md)"
+      - name: Download font
+        run: wget -P fonts/ https://github.com/smercier/scbosm_grayscale/raw/master/fonts/Thonburi.ttf
+      - name: Copy the fonts # In newer version of fontconfig, it reads $HOME/.local/share/fonts/ but not $HOME/.fonts
+        run: mkdir -p ~/.local/share/fonts && cp -r fonts/* ~/.local/share/fonts/
+      - name: Build font information caches
+        run: fc-cache -rv
+      - name: Create PDF
+        uses: docker://pandoc/latex:2.9
+        with:
+          args: --pdf-engine=xelatex -V 'mainfont:Thonburi' -s -o data-engineering-book.pdf ${{ steps.files_list.outputs.files }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: data-engineering-book.pdf
+          path: data-engineering-book.pdf
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v0.1-${{ github.run_number }}
+          release_name: Automated build v0.1-${{ github.run_number }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: data-engineering-book.pdf
+          asset_name: data-engineering-book.pdf
+          asset_content_type: application/pdf
