@@ -41,14 +41,12 @@ title: Resources
 
 ## บทความ / เว็บไซต์
 
-- <https://awesomedataengineering.com/>
-- <https://github.com/datastacktv/data-engineer-roadmap>
-- <https://www.moderndatastack.xyz/stacks>
-- <https://www.secoda.co/glossary>
-- <https://www.gentlydownthe.stream/>
-- <https://b-greve.gitbook.io/beginners-guide-to-clean-data/>
-- <https://www.startdataengineering.com>
+- [A Beginner's Guide to Clean Data](https://b-greve.gitbook.io/beginners-guide-to-clean-data)
+- [Data Engineer Roadma](https://github.com/datastacktv/data-engineer-roadmap)
+- [Gently Down the Stream](https://www.gentlydownthe.stream)
+- [Modern Data Definitions Glossary](https://www.secoda.co/glossary)
+- [Start Data Engineering](https://www.startdataengineering.com)
 
 ## พอดแคสต์
 
-- <https://www.dataengineeringpodcast.com>
+- [Data Engineering Podcast](https://www.dataengineeringpodcast.com)
