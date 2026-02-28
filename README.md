@@ -31,7 +31,3 @@ $ docker compose up # http://localhost:3000
 ## อ้างอิง
 
 - [Thai Glossary](http://glossary.in.th/)
-
-## todo
-
-- [ ] apply for official algolia docsearch: https://docusaurus.io/docs/search#using-algolia-docsearch
