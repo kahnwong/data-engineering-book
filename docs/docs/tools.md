@@ -91,6 +91,10 @@ Airbyte เป็นเครื่องมือโอเพนซอร์ส
 
 Great Expectations เป็นเครื่องมือที่ช่วยให้เราดูแลรักษาคุณภาพของข้อมูล (data quality) ไว้ โดยผ่านฟังก์ชั่นการทำงานที่เข้าใจได้ง่าย อย่างเช่น `expect_table_row_count_to_be_between` ที่เอาไว้ตรวจสอบจำนวนแถวของตารางว่าควรจะมีจำนวนแถวอยู่ระหว่างเท่าไหร่ถึงเท่าไหร่ เป็นต้น
 
+### [Pandera](https://github.com/unionai-oss/pandera)
+
+Pandera เป็น data validation framework จะต่างกับ Great Expectations ตรงที่ สามารถเขียนเป็น code ตรงๆ ได้เลย ไม่จำเป็นต้องใช้ผ่าน notebook interface มีข้อดีคือ จะสะดวกกว่าในการทำ automated data quality pipelines เอาไว้สำหรับใช้ใน ci/cd
+
 ### [Soda Core](https://www.soda.io/core)
 
 Soda Core เป็นเครื่องมือ open source ที่ช่วยเรื่อง data reliability มีทั้งแบบ CLI และ Python library เราสามารถที่จะเอามาใช้ตรวจสอบคุณภาพของข้อมูลใน data pipeline หรือในระบบ data observability ของเราได้
@@ -104,6 +108,18 @@ Soda Core เป็นเครื่องมือ open source ที่ช่
 * [dbt คืออะไรนะ?](https://zkan.hashnode.dev/what-is-dbt)
 * [เริ่มต้นกับ dbt](https://zkan.hashnode.dev/get-started-with-dbt)
 * [การจัดการโมเดลใน dbt และการทดสอบ](https://zkan.hashnode.dev/dbt-models-and-tests)
+
+### [DuckDB](https://duckdb.org/)
+
+DuckDB คือ data processing engine ที่สามารถใช้ sql ในการ transform ข้อมูลได้ มีข้อดีคือสามารถอ่านไฟล์ตรงๆ ได้เลย โดยที่ไม่ต้อง import เข้ามาก่อน (จะไม่เหมือน sqlite ที่ต้อง import ก่อนถึงจะสามารถเห็นข้อมูล) เหมาะสำหรับทีมที่ชำนาญ sql และยังไม่จำเป็นต้อง process ข้อมูลใหญ่มากๆ ซึ่งตัว duckdb เองก็สามารถเขียน output ลงไฟล์ตรงๆ ได้เช่นกัน ไม่จำเป็นต้องไป export ออกมาอีกรอบหลังจาก transform เสร็จ
+
+* [DuckDB vs Polars vs Spark!](https://karnwong.me/posts/2023/04/duckdb-vs-polars-vs-spark/)
+
+### [Polars](https://pola.rs/)
+
+Polars เป็น dataframe framework ที่มีข้อดีคือ ไว และ สามารถ process ข้อมูลที่มีขนาดใหญ่กว่า pandas ได้ ถ้าเทียบกับ cpu/memory ที่เท่ากัน เขียนคล้ายๆ pyspark syntax
+
+* [Dataframe processing benchmarks (ภาษาไทย)](https://karnwong.me/posts/2025/07/dataframe-processing-benchmarks-th/)
 
 ### [Spark](https://spark.apache.org/)
 
