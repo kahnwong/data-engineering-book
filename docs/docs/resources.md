@@ -43,6 +43,7 @@ title: Resources
 
 - [A Beginner's Guide to Clean Data](https://b-greve.gitbook.io/beginners-guide-to-clean-data)
 - [Data Engineer Roadma](https://github.com/datastacktv/data-engineer-roadmap)
+- [Data Mesh Architecture](https://www.datamesh-architecture.com/)
 - [Gently Down the Stream](https://www.gentlydownthe.stream)
 - [Modern Data Definitions Glossary](https://www.secoda.co/glossary)
 - [Start Data Engineering](https://www.startdataengineering.com)
